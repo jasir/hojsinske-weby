@@ -1,66 +1,42 @@
+{* Gallery snippet - dostane jen cestu k prvnímu obrázku a zbytek vygeneruje automaticky *}
+{define galleryImages, $firstImagePath}
+    {* Extract base path and filename pattern from first image *}
+    {var $basePath = substr($firstImagePath, 0, strrpos($firstImagePath, '/'))}
+    {var $extension = substr($firstImagePath, strrpos($firstImagePath, '.'))}
+    
+    {* Array of all gallery image numbers that exist *}
+    {var $galleryNumbers = [1, 2, 3, 4, 5, 6, 7, 9, 10, 15, 16, 17, 19, 20, 21, 22, 23, 25, 27, 29, 31, 32, 33, 36, 37, 38, 39, 40, 41, 42, 43, 45, 46, 47, 48, 49, 50, 51]}
+    
+    {* Group images into slides (3 images per slide) *}
+    {var $imagesPerSlide = 3}
+    {var $totalSlides = ceil(count($galleryNumbers) / $imagesPerSlide)}
+    
+    {for $slideIndex = 0; $slideIndex < $totalSlides; $slideIndex++}
+        <div class="gallery-slider__item">
+            {for $imageIndex = 0; $imageIndex < $imagesPerSlide; $imageIndex++}
+                {var $globalIndex = $slideIndex * $imagesPerSlide + $imageIndex}
+                {if $globalIndex < count($galleryNumbers)}
+                    {var $imageNumber = $galleryNumbers[$globalIndex]}
+                    {var $imagePath = $basePath . '/gallery' . $imageNumber . $extension}
+                    <a href="{$imagePath}" class="gallery-slider__img js_gallery">
+                        <img class="tns-lazy-img"
+                             data-src="{$imagePath}"
+                             src="{$imagePath}"
+                             alt="" />
+                    </a>
+                {/if}
+            {/for}
+        </div>
+    {/for}
+{/define}
+
 <section class="section _bg-gray" id="gallery">
     <div class="container">
         <h2><span>Galerie</span></h2>
     </div>
     <div class="slider">
         <div id="gallerySlider" class="gallery-slider gallery-ie-class">
-            <div class="gallery-slider__item">
-                <a href="{$basePath}/assets/hojsin.cz/images/gallery/gallery1.jpg"
-                    class="gallery-slider__img js_gallery"><img class="tns-lazy-img"
-                        data-src="{$basePath}/assets/hojsin.cz/images/gallery/gallery1.jpg"
-                        src="{$basePath}/assets/hojsin.cz/images/gallery/gallery1.jpg" alt="" /></a>
-                <a href="{$basePath}/assets/hojsin.cz/images/gallery/gallery33.jpg"
-                    class="gallery-slider__img js_gallery"><img class="tns-lazy-img"
-                        data-src="{$basePath}/assets/hojsin.cz/images/gallery/gallery33.jpg"
-                        src="{$basePath}/assets/hojsin.cz/images/gallery/gallery33.jpg" alt="" /></a>
-                <a href="{$basePath}/assets/hojsin.cz/images/gallery/gallery40.jpg"
-                    class="gallery-slider__img js_gallery"><img class="tns-lazy-img"
-                        data-src="{$basePath}/assets/hojsin.cz/images/gallery/gallery40.jpg"
-                        src="{$basePath}/assets/hojsin.cz/images/gallery/gallery40.jpg" alt="" /></a>
-            </div>
-            <div class="gallery-slider__item">
-                <a href="{$basePath}/assets/hojsin.cz/images/gallery/gallery5.jpg"
-                    class="gallery-slider__img js_gallery"><img class="tns-lazy-img"
-                        data-src="{$basePath}/assets/hojsin.cz/images/gallery/gallery5.jpg"
-                        src="{$basePath}/assets/hojsin.cz/images/gallery/gallery5.jpg" alt="" /></a>
-                <a href="{$basePath}/assets/hojsin.cz/images/gallery/gallery39.jpg"
-                    class="gallery-slider__img js_gallery"><img class="tns-lazy-img"
-                        data-src="{$basePath}/assets/hojsin.cz/images/gallery/gallery39.jpg"
-                        src="{$basePath}/assets/hojsin.cz/images/gallery/gallery39.jpg" alt="" /></a>
-                <a href="{$basePath}/assets/hojsin.cz/images/gallery/gallery29.jpg"
-                    class="gallery-slider__img js_gallery"><img class="tns-lazy-img"
-                        data-src="{$basePath}/assets/hojsin.cz/images/gallery/gallery29.jpg"
-                        src="{$basePath}/assets/hojsin.cz/images/gallery/gallery29.jpg" alt="" /></a>
-            </div>
-            <div class="gallery-slider__item">
-                <a href="{$basePath}/assets/hojsin.cz/images/gallery/gallery49.jpg"
-                    class="gallery-slider__img js_gallery"><img class="tns-lazy-img"
-                        data-src="{$basePath}/assets/hojsin.cz/images/gallery/gallery49.jpg"
-                        src="{$basePath}/assets/hojsin.cz/images/gallery/gallery49.jpg" alt="" /></a>
-                <a href="{$basePath}/assets/hojsin.cz/images/gallery/gallery7.jpg"
-                    class="gallery-slider__img js_gallery"><img class="tns-lazy-img"
-                        data-src="{$basePath}/assets/hojsin.cz/images/gallery/gallery7.jpg"
-                        src="{$basePath}/assets/hojsin.cz/images/gallery/gallery7.jpg" alt="" /></a>
-                <a href="{$basePath}/assets/hojsin.cz/images/gallery/gallery48.jpg"
-                    class="gallery-slider__img js_gallery"><img class="tns-lazy-img"
-                        data-src="{$basePath}/assets/hojsin.cz/images/gallery/gallery48.jpg"
-                        src="{$basePath}/assets/hojsin.cz/images/gallery/gallery48.jpg" alt="" /></a>
-            </div>
-            <div class="gallery-slider__item">
-                <a href="{$basePath}/assets/hojsin.cz/images/gallery/gallery10.jpg"
-                    class="gallery-slider__img js_gallery"><img class="tns-lazy-img"
-                        data-src="{$basePath}/assets/hojsin.cz/images/gallery/gallery10.jpg"
-                        src="{$basePath}/assets/hojsin.cz/images/gallery/gallery10.jpg" alt="" /></a>
-                <a href="{$basePath}/assets/hojsin.cz/images/gallery/gallery21.jpg"
-                    class="gallery-slider__img js_gallery"><img class="tns-lazy-img"
-                        data-src="{$basePath}/assets/hojsin.cz/images/gallery/gallery21.jpg"
-                        src="{$basePath}/assets/hojsin.cz/images/gallery/gallery21.jpg" alt="" /></a>
-                <a href="{$basePath}/assets/hojsin.cz/images/gallery/gallery44.jpg"
-                    class="gallery-slider__img js_gallery"><img class="tns-lazy-img"
-                        data-src="{$basePath}/assets/hojsin.cz/images/gallery/gallery44.jpg"
-                        src="{$basePath}/assets/hojsin.cz/images/gallery/gallery44.jpg" alt="" /></a>
-            </div>
-            {* Add more gallery items as needed - abbreviated for space *}
+            {include galleryImages, $basePath . '/assets/hojsin.cz/images/gallery/gallery1.jpg'}
         </div>
     </div>
 </section> 
