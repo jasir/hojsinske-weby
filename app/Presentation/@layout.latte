@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="utf-8">
+    <title>{block title}Hojsin Web{/block}</title>
+    <link rel="stylesheet" n:href="assets/style.css">
+</head>
+<body>
+    <header>
+        <h1><a href="/">Hojsin</a></h1>
+        <nav>
+            <a href="/">Domů</a> | <a href="/kontakt">Kontakt</a>
+        </nav>
+    </header>
+    <main>
+        {include content}
+    </main>
+    <script src={asset 'assets/script.js'}></script>
+</body>
+</html>
