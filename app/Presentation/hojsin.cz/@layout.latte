@@ -3,11 +3,16 @@
 <head>
     <meta charset="utf-8">
     <title>{block title}Hojsin.cz - Oficiální stránky{/block}</title>
+    <div style="position: absolute; top: 0; left: 0; max-width: 100px; z-index: -1; transform: scale(0.5);">
+    {include layout/background.latte}
+    {include layout/bannerLogo.latte}
+    {include layout/circleLogo.latte}
+    </div>
     <link rel="stylesheet" href="{$basePath}/assets/hojsin.cz/style.css">
 </head>
 <body>
     <header>
-        <h1 style="color: #2563eb;"><a href="/">Hojsin.cz</a></h1>
+        <h1 style="color: #2563eb;z-index: -10;"><a href="/">Hojsin.cz</a></h1>
         {control pageMenu}
     </header>
     <main>
