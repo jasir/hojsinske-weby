@@ -1,0 +1,62 @@
+{* Google Tag Manager *}
+<script>(function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({
+            'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-K3HJBD6');</script>
+{* End Google Tag Manager *}
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Hojšín je nejkrásnější místo na zemi. Naši Samotu najdete mezi lesy, loukami a rybníky">
+
+{* Favicon links *}
+<link rel="apple-touch-icon" sizes="57x57" href="{$basePath}/assets/hojsin.cz/images/favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="{$basePath}/assets/hojsin.cz/images/favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="{$basePath}/assets/hojsin.cz/images/favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="{$basePath}/assets/hojsin.cz/images/favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="{$basePath}/assets/hojsin.cz/images/favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="{$basePath}/assets/hojsin.cz/images/favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="{$basePath}/assets/hojsin.cz/images/favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="{$basePath}/assets/hojsin.cz/images/favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="{$basePath}/assets/hojsin.cz/images/favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="{$basePath}/assets/hojsin.cz/images/favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="{$basePath}/assets/hojsin.cz/images/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="{$basePath}/assets/hojsin.cz/images/favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="{$basePath}/assets/hojsin.cz/images/favicons/favicon-16x16.png">
+<link rel="manifest" href="{$basePath}/assets/hojsin.cz/images/favicons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="{$basePath}/assets/hojsin.cz/images/favicons/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+{* CSS *}
+<link rel="stylesheet" href="{$basePath}/assets/hojsin.cz/styles.css" media="all">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+    integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="" />
+
+{* Leaflet JS *}
+<script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+    integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
+
+{* IE11 Gallery support *}
+<script>
+    function addClassToGallery() {
+        var gallery = document.querySelector('.gallery-ie-class');
+
+        if (!gallery) {
+            return
+        }
+
+        gallery.classList.add('ie11');
+
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        if (navigator.userAgent.match(/Trident\/7\./)) {
+            addClassToGallery()
+        }
+    })
+</script> 
