@@ -1,0 +1,10 @@
+<nav class="page-menu">
+{foreach $menuItems as $page => $item}
+    {if $page === $currentPage}
+        <span class="menu-item active">{$item['title']}</span>
+    {else}
+        <a href="{$item['url']}" class="menu-item">{$item['title']}</a>
+    {/if}
+    {if !$iterator->last} | {/if}
+{/foreach}
+</nav> 

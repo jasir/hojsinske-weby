@@ -14,3 +14,23 @@ a {
     color: #00aaff;
     text-decoration: none;
 }
+
+/* Page Menu Styles */
+.page-menu {
+    margin-top: 1rem;
+}
+
+.page-menu .menu-item {
+    color: #ccc;
+    text-decoration: none;
+    padding: 0.5rem;
+}
+
+.page-menu .menu-item:hover {
+    color: #00aaff;
+}
+
+.page-menu .menu-item.active {
+    color: #00aaff;
+    font-weight: bold;
+}
