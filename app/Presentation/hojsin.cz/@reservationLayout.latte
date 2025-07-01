@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <title>{block title}Hojšín{/block}</title>
+    {include layout/head.latte}
+</head>
+<body class="with-small-header">
+    {* Google Tag Manager (noscript) - from scripts.latte *}
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K3HJBD6" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    
+    {include layout/svgIcons.latte}
+    {include reservationHeader}
+    <main>
+        {include content}
+    </main>
+    
+    {* JavaScript at the end *}
+    {block scripts}
+    <script src="{$basePath}/assets/hojsin.cz/default.min.js?1"></script>
+    <script src="https://static.elfsight.com/platform/platform.js" async></script>
+    {/block}
+</body>
+</html> 
