@@ -15,7 +15,25 @@ final class RouterFactory
 	public static function createRouter(): RouteList
 	{
 		$router = new RouteList;
-		$router->addRoute('<page=default>', 'Page:default');
+		
+		// Hojsin.cz routes
+		$router->withModule('HojsinCz')
+			->withDomain('hojsin.cz.local')
+			->addRoute('<page=default>', 'Page:default');
+			
+		$router->withModule('HojsinCz')
+			->withDomain('hojsin.cz')
+			->addRoute('<page=default>', 'Page:default');
+		
+		// PenzionsBorovna.cz routes
+		$router->withModule('PenzionsBorovna')
+			->withDomain('penzionsborovna.cz.local')
+			->addRoute('<page=default>', 'Page:default');
+			
+		$router->withModule('PenzionsBorovna')
+			->withDomain('penzionsborovna.cz')
+			->addRoute('<page=default>', 'Page:default');
+		
 		return $router;
 	}
 }

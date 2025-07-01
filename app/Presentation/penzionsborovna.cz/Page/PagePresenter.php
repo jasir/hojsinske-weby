@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Presentation\Page;
+namespace App\Presentation\PenzionsBorovna\Page;
 
 use Nette;
 
