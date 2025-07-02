@@ -23,4 +23,9 @@ final class PagePresenter extends Nette\Application\UI\Presenter
             $this->error('Stránka nebyla nalezena');
         }
     }
+
+    public function renderRedirect(string $url = '/'): void
+    {
+        $this->redirectUrl($url);
+    }
 }
