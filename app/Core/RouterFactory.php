@@ -6,7 +6,7 @@ namespace App\Core;
 
 use Nette;
 use Nette\Application\Routers\RouteList;
-
+use Nette\Application\Routers\Route;
 
 final class RouterFactory
 {
@@ -16,21 +16,54 @@ final class RouterFactory
 	{
 		$router = new RouteList;
 
-		// Hojsin.cz routes
-		$router->withModule('HojsinCz')
+		// Redirecty na .html verze
+		$router
+			->withModule('HojsinCz')
 			->withDomain('hojsin.cz.local')
-			->addRoute('en.html', 'Page:en')
-			->addRoute('rezervace.html', ['presenter' => 'Page', 'action' => 'default', 'page' => 'rezervace'])
-			->addRoute('reservation.html', ['presenter' => 'Page', 'action' => 'default', 'page' => 'reservation']);
+			->addRoute('/rezervace', [
+				'presenter' => 'Page',
+				'action' => 'redirect',
+				'url' => '/rezervace.html'
+			], Route::ONE_WAY)
+			->addRoute('/reservation', [
+				'presenter' => 'Page',
+				'action' => 'redirect',
+				'url' => '/reservation.html'
+			], Route::ONE_WAY)
+			->addRoute('/en', [
+				'presenter' => 'Page',
+				'action' => 'redirect',
+				'url' => '/en.html'
+			], Route::ONE_WAY);
 
-		$router->withModule('HojsinCz')
+		// Hlavní routy s .html
+		$router
+			->withModule('HojsinCz')
 			->withDomain('hojsin.cz.local')
-			->addRoute('<page=default>', 'Page:default');
-
-
-		$router->withModule('HojsinCz')
-			->withDomain('hojsin.cz')
-			->addRoute('<page=default>', 'Page:default');
+			->addRoute('/rezervace.html', [
+				'presenter' => 'Page',
+				'action' => 'default',
+				'page' => 'rezervace',
+				'lang' => 'cs'
+			])
+			->addRoute('/reservation.html', [
+				'presenter' => 'Page',
+				'action' => 'default',
+				'page' => 'reservation',
+				'lang' => 'en'
+			])
+			->addRoute('/en.html', [
+				'presenter' => 'Page',
+				'action' => 'default',
+				'page' => 'en',
+				'lang' => 'en'
+			])
+			->addRoute('/', [
+				'presenter' => 'Page',
+				'action' => 'default',
+				'page' => 'home',
+				'lang' => 'cs'
+			]);
 
 		// PenzionsBorovna.cz routes
 		$router->withModule('PenzionsBorovna')
