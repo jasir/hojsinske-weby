@@ -55,7 +55,7 @@ final class RouterFactory
 			->addRoute('/en.html', [
 				'presenter' => 'Page',
 				'action' => 'default',
-				'page' => 'en',
+				'page' => 'home.en',
 				'lang' => 'en'
 			])
 			->addRoute('/', [
