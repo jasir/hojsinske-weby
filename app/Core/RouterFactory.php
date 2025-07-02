@@ -20,8 +20,8 @@ final class RouterFactory
 		$router->withModule('HojsinCz')
 			->withDomain('hojsin.cz.local')
 			->addRoute('en.html', 'Page:en')
-			->addRoute('rezervace.html', 'Page:default', ['page' => 'rezervace'])
-			->addRoute('reservation.html', 'Page:default', ['page' => 'reservation']);
+			->addRoute('rezervace.html', ['presenter' => 'Page', 'action' => 'default', 'page' => 'rezervace'])
+			->addRoute('reservation.html', ['presenter' => 'Page', 'action' => 'default', 'page' => 'reservation']);
 
 		$router->withModule('HojsinCz')
 			->withDomain('hojsin.cz.local')
