@@ -20,6 +20,7 @@ final class PagePresenter extends Nette\Application\UI\Presenter
         if ($page === 'reservation') {
             $this->currentLang = 'en';
         } else {
+            // All other pages including 'rezervace' are in Czech
             $this->currentLang = 'cs';
         }
 
