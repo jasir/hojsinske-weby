@@ -81,15 +81,15 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./assets/hojsin.cz/default.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./assets/penzionsborovna.cz/default.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./assets/hojsin.cz/css/styles.pcss":
-/*!******************************************!*\
-  !*** ./assets/hojsin.cz/css/styles.pcss ***!
-  \******************************************/
+/***/ "./assets/penzionsborovna.cz/css/styles.pcss":
+/*!***************************************************!*\
+  !*** ./assets/penzionsborovna.cz/css/styles.pcss ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -97,133 +97,98 @@
 
 /***/ }),
 
-/***/ "./assets/hojsin.cz/default.js":
-/*!*************************************!*\
-  !*** ./assets/hojsin.cz/default.js ***!
-  \*************************************/
+/***/ "./assets/penzionsborovna.cz/default.js":
+/*!**********************************************!*\
+  !*** ./assets/penzionsborovna.cz/default.js ***!
+  \**********************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _css_styles_pcss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./css/styles.pcss */ "./assets/hojsin.cz/css/styles.pcss");
+/* harmony import */ var _css_styles_pcss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./css/styles.pcss */ "./assets/penzionsborovna.cz/css/styles.pcss");
 /* harmony import */ var _css_styles_pcss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_styles_pcss__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _scripts_hojsin_scripts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scripts/hojsin-scripts */ "./assets/hojsin.cz/scripts/hojsin-scripts.js");
-/* harmony import */ var _scripts_map_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./scripts/map.js */ "./assets/hojsin.cz/scripts/map.js");
-/* harmony import */ var _scripts_map_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_scripts_map_js__WEBPACK_IMPORTED_MODULE_2__);
-
+/* harmony import */ var _scripts_zbraslavice_scripts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scripts/zbraslavice-scripts */ "./assets/penzionsborovna.cz/scripts/zbraslavice-scripts.js");
 
 
 
 /***/ }),
 
-/***/ "./assets/hojsin.cz/scripts/hojsin-scripts.js":
-/*!****************************************************!*\
-  !*** ./assets/hojsin.cz/scripts/hojsin-scripts.js ***!
-  \****************************************************/
-/*! no exports provided */
+/***/ "./assets/penzionsborovna.cz/scripts/parts/campaignPopup.js":
+/*!******************************************************************!*\
+  !*** ./assets/penzionsborovna.cz/scripts/parts/campaignPopup.js ***!
+  \******************************************************************/
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _parts_tiny_slider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./parts/tiny-slider */ "./assets/hojsin.cz/scripts/parts/tiny-slider.js");
-/* harmony import */ var _parts_fullPgaeScroll__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./parts/fullPgaeScroll */ "./assets/hojsin.cz/scripts/parts/fullPgaeScroll.js");
-/* harmony import */ var _parts_scrollReval__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./parts/scrollReval */ "./assets/hojsin.cz/scripts/parts/scrollReval.js");
-/* harmony import */ var _parts_toggleMenu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./parts/toggleMenu */ "./assets/hojsin.cz/scripts/parts/toggleMenu.js");
-/* harmony import */ var _parts_lightbox__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./parts/lightbox */ "./assets/hojsin.cz/scripts/parts/lightbox.js");
-/* harmony import */ var _parts_slider_options_slider_options__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./parts/slider-options/slider-options */ "./assets/hojsin.cz/scripts/parts/slider-options/slider-options.js");
-/* harmony import */ var _parts_resizeHeaderOnScroll__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./parts/resizeHeaderOnScroll */ "./assets/hojsin.cz/scripts/parts/resizeHeaderOnScroll.js");
-/* harmony import */ var _parts_parallax__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./parts/parallax */ "./assets/hojsin.cz/scripts/parts/parallax.js");
 /* global document */
-/* eslint-disable no-new */
 
-
-
-
-
-
-
-
-
-const HOJSIN_SCRIPTS = {
-  init() {
-    Object(_parts_tiny_slider__WEBPACK_IMPORTED_MODULE_0__["default"])('endPaddingSlider', _parts_slider_options_slider_options__WEBPACK_IMPORTED_MODULE_5__["roomsSliderOptions"]);
-    Object(_parts_tiny_slider__WEBPACK_IMPORTED_MODULE_0__["default"])('gallerySlider', _parts_slider_options_slider_options__WEBPACK_IMPORTED_MODULE_5__["gallerySliderOptions"]);
-    Object(_parts_fullPgaeScroll__WEBPACK_IMPORTED_MODULE_1__["default"])();
-    Object(_parts_scrollReval__WEBPACK_IMPORTED_MODULE_2__["default"])('js_scroll-reval');
-    Object(_parts_lightbox__WEBPACK_IMPORTED_MODULE_4__["default"])('js_gallery');
-    Object(_parts_lightbox__WEBPACK_IMPORTED_MODULE_4__["default"])('js_gallery-maps');
-    new _parts_toggleMenu__WEBPACK_IMPORTED_MODULE_3__["default"]('js_menu-toggler', 'js_toggle-menu');
-    Object(_parts_resizeHeaderOnScroll__WEBPACK_IMPORTED_MODULE_6__["default"])();
-    Object(_parts_parallax__WEBPACK_IMPORTED_MODULE_7__["default"])();
+function setCookie(cname, cvalue, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+  const expires = `expires=${d.toUTCString()}`;
+  document.cookie = `${cname}=${cvalue};${expires};path=/`;
+}
+function getCookie(cname) {
+  const name = `${cname}=`;
+  const decodedCookie = decodeURIComponent(document.cookie);
+  const ca = decodedCookie.split(';');
+  for (let i = 0; i < ca.length; i += 1) {
+    let c = ca[i];
+    while (c.charAt(0) === ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) === 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return '';
+}
+function checkCookie() {
+  const campaignCookie = getCookie('zbraslaviceCampaignCookie');
+  console.log(campaignCookie);
+  if (!campaignCookie) {
+    setCookie('zbraslaviceCampaignCookie', 'yes', 1);
+  }
+}
+const setCampaignPopupCookie = () => {
+  const campaignPopup = document.querySelector('.js_campaign-popup');
+  if (!campaignPopup) {
+    return;
+  }
+  const closeBtn = campaignPopup.querySelector('.js_popup-close');
+  if (!closeBtn) {
+    return;
+  }
+  closeBtn.addEventListener('click', event => {
+    event.preventDefault();
+    campaignPopup.style.display = 'none';
+    checkCookie();
+  });
+};
+const checkCampaignPopupCookie = () => {
+  const campaignPopup = document.querySelector('.js_campaign-popup');
+  if (!campaignPopup) {
+    return;
+  }
+  const campaignCookie = getCookie('zbraslaviceCampaignCookie');
+  if (!campaignCookie) {
+    campaignPopup.style.display = 'flex';
   }
 };
-document.addEventListener('DOMContentLoaded', () => {
-  HOJSIN_SCRIPTS.init();
+/* harmony default export */ __webpack_exports__["default"] = ({
+  setCampaignPopupCookie,
+  checkCampaignPopupCookie
 });
 
 /***/ }),
 
-/***/ "./assets/hojsin.cz/scripts/map.js":
-/*!*****************************************!*\
-  !*** ./assets/hojsin.cz/scripts/map.js ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/* global L */
-const API_KEY = '6hlig4UnptJZRQSxNSaRMobUDoti2DYAunyG8d-5myA';
-
-/*
-We create the map and set its initial coordinates and zoom.
-See https://leafletjs.com/reference.html#map
-*/
-const coords = [49.58349836348118, 14.714412202043206];
-const zoom = 14;
-const map = L.map('map').setView(coords, zoom);
-
-/*
-Then we add a raster tile layer with REST API Mapy.cz tiles
-See https://leafletjs.com/reference.html#tilelayer
-*/
-L.tileLayer(`https://api.mapy.cz/v1/maptiles/basic/256/{z}/{x}/{y}?apikey=${API_KEY}`, {
-  minZoom: 0,
-  maxZoom: 19,
-  attribution: '<a href="https://api.mapy.cz/copyright" target="_blank">&copy; Seznam.cz a.s. a další</a>'
-}).addTo(map);
-
-/*
-We also require you to include our logo somewhere over the map.
-We create our own map control implementing a documented interface,
-that shows a clickable logo.
-See https://leafletjs.com/reference.html#control
-*/
-const LogoControl = L.Control.extend({
-  options: {
-    position: 'bottomleft'
-  },
-  onAdd(/* mapInstance */
-  ) {
-    const container = L.DomUtil.create('div');
-    const link = L.DomUtil.create('a', '', container);
-    link.setAttribute('href', 'https://en.mapy.cz/turisticka?x=14.7144122&y=49.5835401&z=17&pano=1&source=addr&id=10420735"');
-    link.setAttribute('target', '_blank');
-    link.innerHTML = '<img src="https://api.mapy.cz/img/api/logo.svg" />';
-    L.DomEvent.disableClickPropagation(link);
-    return container;
-  }
-});
-
-// finally we add our LogoControl to the map
-new LogoControl().addTo(map);
-L.marker(coords).addTo(map);
-
-/***/ }),
-
-/***/ "./assets/hojsin.cz/scripts/parts/fullPgaeScroll.js":
-/*!**********************************************************!*\
-  !*** ./assets/hojsin.cz/scripts/parts/fullPgaeScroll.js ***!
-  \**********************************************************/
+/***/ "./assets/penzionsborovna.cz/scripts/parts/fullPgaeScroll.js":
+/*!*******************************************************************!*\
+  !*** ./assets/penzionsborovna.cz/scripts/parts/fullPgaeScroll.js ***!
+  \*******************************************************************/
 /*! exports provided: elScrollTo, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -357,10 +322,10 @@ function initPageScroll() {
 
 /***/ }),
 
-/***/ "./assets/hojsin.cz/scripts/parts/lightbox.js":
-/*!****************************************************!*\
-  !*** ./assets/hojsin.cz/scripts/parts/lightbox.js ***!
-  \****************************************************/
+/***/ "./assets/penzionsborovna.cz/scripts/parts/lightbox.js":
+/*!*************************************************************!*\
+  !*** ./assets/penzionsborovna.cz/scripts/parts/lightbox.js ***!
+  \*************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -378,10 +343,10 @@ function initLightBox(elClass) {
 
 /***/ }),
 
-/***/ "./assets/hojsin.cz/scripts/parts/parallax.js":
-/*!****************************************************!*\
-  !*** ./assets/hojsin.cz/scripts/parts/parallax.js ***!
-  \****************************************************/
+/***/ "./assets/penzionsborovna.cz/scripts/parts/parallax.js":
+/*!*************************************************************!*\
+  !*** ./assets/penzionsborovna.cz/scripts/parts/parallax.js ***!
+  \*************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -400,10 +365,10 @@ function parallax() {
 
 /***/ }),
 
-/***/ "./assets/hojsin.cz/scripts/parts/resizeHeaderOnScroll.js":
-/*!****************************************************************!*\
-  !*** ./assets/hojsin.cz/scripts/parts/resizeHeaderOnScroll.js ***!
-  \****************************************************************/
+/***/ "./assets/penzionsborovna.cz/scripts/parts/resizeHeaderOnScroll.js":
+/*!*************************************************************************!*\
+  !*** ./assets/penzionsborovna.cz/scripts/parts/resizeHeaderOnScroll.js ***!
+  \*************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -412,7 +377,7 @@ __webpack_require__.r(__webpack_exports__);
 /* global window , document */
 
 function resizeHeaderOnScroll() {
-  const shrinkOn = 115;
+  const shrinkOn = 10;
   const {
     body
   } = document;
@@ -432,10 +397,10 @@ function resizeHeaderOnScroll() {
 
 /***/ }),
 
-/***/ "./assets/hojsin.cz/scripts/parts/scrollReval.js":
-/*!*******************************************************!*\
-  !*** ./assets/hojsin.cz/scripts/parts/scrollReval.js ***!
-  \*******************************************************/
+/***/ "./assets/penzionsborovna.cz/scripts/parts/scrollReval.js":
+/*!****************************************************************!*\
+  !*** ./assets/penzionsborovna.cz/scripts/parts/scrollReval.js ***!
+  \****************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -456,10 +421,10 @@ function initScrollReval(elClass) {
 
 /***/ }),
 
-/***/ "./assets/hojsin.cz/scripts/parts/slider-options/slider-options.js":
-/*!*************************************************************************!*\
-  !*** ./assets/hojsin.cz/scripts/parts/slider-options/slider-options.js ***!
-  \*************************************************************************/
+/***/ "./assets/penzionsborovna.cz/scripts/parts/slider-options/slider-options.js":
+/*!**********************************************************************************!*\
+  !*** ./assets/penzionsborovna.cz/scripts/parts/slider-options/slider-options.js ***!
+  \**********************************************************************************/
 /*! exports provided: roomsSliderOptions, gallerySliderOptions */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -530,10 +495,10 @@ const gallerySliderOptions = {
 
 /***/ }),
 
-/***/ "./assets/hojsin.cz/scripts/parts/tiny-slider.js":
-/*!*******************************************************!*\
-  !*** ./assets/hojsin.cz/scripts/parts/tiny-slider.js ***!
-  \*******************************************************/
+/***/ "./assets/penzionsborovna.cz/scripts/parts/tiny-slider.js":
+/*!****************************************************************!*\
+  !*** ./assets/penzionsborovna.cz/scripts/parts/tiny-slider.js ***!
+  \****************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -564,10 +529,10 @@ function initTinySlider(elId, options) {
 
 /***/ }),
 
-/***/ "./assets/hojsin.cz/scripts/parts/toggleMenu.js":
-/*!******************************************************!*\
-  !*** ./assets/hojsin.cz/scripts/parts/toggleMenu.js ***!
-  \******************************************************/
+/***/ "./assets/penzionsborovna.cz/scripts/parts/toggleMenu.js":
+/*!***************************************************************!*\
+  !*** ./assets/penzionsborovna.cz/scripts/parts/toggleMenu.js ***!
+  \***************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -594,6 +559,57 @@ class ToggleMenu {
   }
 }
 /* harmony default export */ __webpack_exports__["default"] = (ToggleMenu);
+
+/***/ }),
+
+/***/ "./assets/penzionsborovna.cz/scripts/zbraslavice-scripts.js":
+/*!******************************************************************!*\
+  !*** ./assets/penzionsborovna.cz/scripts/zbraslavice-scripts.js ***!
+  \******************************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _parts_tiny_slider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./parts/tiny-slider */ "./assets/penzionsborovna.cz/scripts/parts/tiny-slider.js");
+/* harmony import */ var _parts_fullPgaeScroll__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./parts/fullPgaeScroll */ "./assets/penzionsborovna.cz/scripts/parts/fullPgaeScroll.js");
+/* harmony import */ var _parts_scrollReval__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./parts/scrollReval */ "./assets/penzionsborovna.cz/scripts/parts/scrollReval.js");
+/* harmony import */ var _parts_toggleMenu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./parts/toggleMenu */ "./assets/penzionsborovna.cz/scripts/parts/toggleMenu.js");
+/* harmony import */ var _parts_lightbox__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./parts/lightbox */ "./assets/penzionsborovna.cz/scripts/parts/lightbox.js");
+/* harmony import */ var _parts_slider_options_slider_options__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./parts/slider-options/slider-options */ "./assets/penzionsborovna.cz/scripts/parts/slider-options/slider-options.js");
+/* harmony import */ var _parts_resizeHeaderOnScroll__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./parts/resizeHeaderOnScroll */ "./assets/penzionsborovna.cz/scripts/parts/resizeHeaderOnScroll.js");
+/* harmony import */ var _parts_parallax__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./parts/parallax */ "./assets/penzionsborovna.cz/scripts/parts/parallax.js");
+/* harmony import */ var _parts_campaignPopup__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./parts/campaignPopup */ "./assets/penzionsborovna.cz/scripts/parts/campaignPopup.js");
+/* global document */
+/* eslint-disable no-new */
+
+
+
+
+
+
+
+
+
+
+const ZBRASLAVICE_SCRIPTS = {
+  init() {
+    Object(_parts_tiny_slider__WEBPACK_IMPORTED_MODULE_0__["default"])('endPaddingSlider', _parts_slider_options_slider_options__WEBPACK_IMPORTED_MODULE_5__["roomsSliderOptions"]);
+    Object(_parts_tiny_slider__WEBPACK_IMPORTED_MODULE_0__["default"])('gallerySlider', _parts_slider_options_slider_options__WEBPACK_IMPORTED_MODULE_5__["gallerySliderOptions"]);
+    Object(_parts_fullPgaeScroll__WEBPACK_IMPORTED_MODULE_1__["default"])();
+    Object(_parts_scrollReval__WEBPACK_IMPORTED_MODULE_2__["default"])('js_scroll-reval');
+    Object(_parts_lightbox__WEBPACK_IMPORTED_MODULE_4__["default"])('js_gallery');
+    Object(_parts_lightbox__WEBPACK_IMPORTED_MODULE_4__["default"])('js_gallery-maps');
+    new _parts_toggleMenu__WEBPACK_IMPORTED_MODULE_3__["default"]('js_menu-toggler', 'js_toggle-menu');
+    Object(_parts_resizeHeaderOnScroll__WEBPACK_IMPORTED_MODULE_6__["default"])();
+    Object(_parts_parallax__WEBPACK_IMPORTED_MODULE_7__["default"])();
+    _parts_campaignPopup__WEBPACK_IMPORTED_MODULE_8__["default"].setCampaignPopupCookie();
+    _parts_campaignPopup__WEBPACK_IMPORTED_MODULE_8__["default"].checkCampaignPopupCookie();
+  }
+};
+document.addEventListener('DOMContentLoaded', () => {
+  ZBRASLAVICE_SCRIPTS.init();
+});
 
 /***/ }),
 

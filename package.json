@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "cross-env NODE_ENV=production webpack --config webpack.config.js --mode production --optimize-minimize",
-    "watch": "cross-env NODE_ENV=development NODE_OPTIONS=--openssl-legacy-provider webpack --config webpack.config.js --watch --mode development"
+    "build": "cross-env NODE_ENV=production webpack --config webpack.config.js --mode production",
+    "build:hojsin": "cross-env NODE_ENV=production webpack --config webpack.config.js --mode production --env target=hojsin.cz",
+    "build:penzion": "cross-env NODE_ENV=production webpack --config webpack.config.js --mode production --env target=penzionsborovna.cz",
+    "watch": "cross-env NODE_ENV=development webpack --config webpack.config.js --watch --mode development",
+    "watch:hojsin": "cross-env NODE_ENV=development webpack --config webpack.config.js --watch --mode development --env target=hojsin.cz",
+    "watch:penzion": "cross-env NODE_ENV=development webpack --config webpack.config.js --watch --mode development --env target=penzionsborovna.cz"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",

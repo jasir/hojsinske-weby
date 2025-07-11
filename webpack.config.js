@@ -2,88 +2,104 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-const formatter = require('eslint/lib/formatters/stylish');
+
 const isDev = process.env.NODE_ENV === 'development';
 
-const copyImages = [
-    {
-        from: path.resolve(__dirname, 'assets/src//images'),
-        to: 'images',
-    },
-];
-
-module.exports = {
-    entry: {
-        default: './assets/src/default.js',
-    },
-    output: {
-        filename: '[name].min.js',
-        path: path.resolve(__dirname, './assets/dist/'),
-    },
-    resolve: {
-        extensions: ['.js', '.jsx'],
-    },
-    devtool: isDev ? 'source-map' : '',
-    module: {
-        rules: [
-            {
-                test: /\.(js|jsx)$/,
-                exclude: /node_modules/,
-                use: [{
-                    loader: 'babel-loader',
-                },
-                    {
-                        loader: 'eslint-loader',
-                        options: {
-                            formatter,
-                            fix: true
-                        }
-                    }
-                ]
-            },
-            {
-                test: /\.pcss$/,
-                exclude: /node_modules/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            sourceMap: isDev,
-                        },
-                    }, {
-                        loader: 'postcss-loader',
-                    },
-                ],
-            },
-            {
-                test: /\.(png|jpg|svg|gif)$/i,
-                use: [
-                    {
-                        loader: 'url-loader',
-                        options: {
-                            context: path.resolve(__dirname, 'assets/src/images'),
-                            name: '[path][name].[ext]',
-                            limit: 8192,
-                            outputPath: 'images',
-                            // publicPath: '../images'
-                        },
-                    },
-                ],
-            },
-        ],
-    },
-    plugins: [
-        new MiniCssExtractPlugin({
-            filename: 'styles.css',
-        }),
-        new CopyWebpackPlugin([...copyImages]),
-        new BrowserSyncPlugin({
-            // browse to http://localhost:3000/ during development,
-            host: 'localhost',
-            port: 3000,
-            files: ['./*.html', '!./assets/dist/*/**.map'],
-            server: {baseDir: ['./']},
-        }),
-    ],
+module.exports = (env = {}) => {
+    const configs = [
+        // Konfigurace pro hojsin.cz
+        createConfig('hojsin.cz'),
+        // Konfigurace pro penzionsborovna.cz  
+        createConfig('penzionsborovna.cz'),
+    ];
+    
+    // Pokud je specifikován target, vrátíme jen ten config
+    if (env.target) {
+        return configs.find(config => config.name === env.target) || configs;
+    }
+    
+    return configs;
 };
+
+function createConfig(siteName) {
+    return {
+        name: siteName,
+        entry: `./assets/${siteName}/default.js`,
+        output: {
+            filename: 'script.js',
+            path: path.resolve(__dirname, `www/assets/${siteName}/`),
+        },
+        resolve: {
+            extensions: ['.js', '.jsx'],
+        },
+        devtool: isDev ? 'source-map' : false,
+        module: {
+            rules: [
+                {
+                    test: /\.(js|jsx)$/,
+                    exclude: /node_modules/,
+                    use: ['babel-loader']
+                },
+                {
+                    test: /\.pcss$/,
+                    use: [
+                        MiniCssExtractPlugin.loader,
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                sourceMap: isDev,
+                            },
+                        },
+                        {
+                            loader: 'postcss-loader',
+                        },
+                    ],
+                },
+                {
+                    test: /\.(png|jpg|jpeg|gif|svg)$/i,
+                    use: [
+                        {
+                            loader: 'file-loader',
+                            options: {
+                                name: '[path][name].[ext]',
+                                outputPath: 'images/',
+                                context: `assets/${siteName}/images`,
+                            },
+                        },
+                    ],
+                },
+                {
+                    test: /\.(woff|woff2|eot|ttf|otf)$/i,
+                    use: [
+                        {
+                            loader: 'file-loader',
+                            options: {
+                                name: '[name].[ext]',
+                                outputPath: 'fonts/',
+                            },
+                        },
+                    ],
+                },
+            ],
+        },
+        plugins: [
+            new MiniCssExtractPlugin({
+                filename: 'style.css',
+            }),
+            new CopyWebpackPlugin([
+                {
+                    from: path.resolve(__dirname, `assets/${siteName}/images`),
+                    to: 'images',
+                },
+                {
+                    from: path.resolve(__dirname, `assets/${siteName}/svg`),
+                    to: 'svg',
+                },
+                {
+                    from: path.resolve(__dirname, `assets/${siteName}/font`),
+                    to: 'font',
+                },
+            ], { copyUnmodified: true }),
+        ],
+    };
+}
