@@ -16,7 +16,7 @@ final class RouterFactory
 	{
 		$router = new RouteList;
 
-		$domains = ['hojsin.cz.local', 'hojsin.cz'];
+		$domains = ['hojsin.cz.local', 'hojsin.cz', 'www.hojsin.cz'];
 
 		foreach ($domains as $domain) {
 			// Redirecty na .html verze
@@ -65,7 +65,7 @@ final class RouterFactory
 		}
 
 		// PenzionsBorovna.cz routes
-		$domains = ['penzionsborovna.cz.local', 'penzionsborovna.cz'];
+		$domains = ['penzionsborovna.cz.local', 'penzionsborovna.cz', 'www.penzionsborovna.cz'];
 
 		foreach ($domains as $domain) {
 			// Redirecty na .html verze
