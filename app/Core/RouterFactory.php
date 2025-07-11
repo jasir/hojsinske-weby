@@ -68,9 +68,16 @@ final class RouterFactory
 		$domains = ['penzionsborovna.cz.local', 'penzionsborovna.cz'];
 
 		foreach ($domains as $domain) {
-			$router->withModule('PenzionsBorovna')
+			// Redirecty na .html verze
+			$router
+				->withModule('PenzionsBorovna')
 				->withDomain($domain)
 				->addRoute('/en', [
+					'presenter' => 'Page',
+					'action' => 'redirect',
+					'url' => '/en.html'
+				], Route::ONE_WAY)
+				->addRoute('/en.html', [
 					'presenter' => 'Page',
 					'action' => 'en',
 					'page' => 'home'
