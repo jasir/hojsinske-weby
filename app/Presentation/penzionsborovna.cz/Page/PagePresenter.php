@@ -24,6 +24,20 @@ final class PagePresenter extends Nette\Application\UI\Presenter
         }
     }
 
+    public function renderEn(string $page = 'home'): void
+    {
+        $this->template->lang = 'en';
+        $this->template->page = $page;
+
+        $templateFile = __DIR__ . "/templates/$page.en.latte";
+        if (file_exists($templateFile)) {
+            $this->setLayout(__DIR__ . '/../@layout.latte');
+            $this->template->setFile($templateFile);
+        } else {
+            $this->error('English page not found');
+        }
+    }
+
     public function renderRedirect(string $url = '/'): void
     {
         $this->redirectUrl($url);

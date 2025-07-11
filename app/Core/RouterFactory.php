@@ -65,13 +65,18 @@ final class RouterFactory
 		}
 
 		// PenzionsBorovna.cz routes
-		$router->withModule('PenzionsBorovna')
-			->withDomain('penzionsborovna.cz.local')
-			->addRoute('<page=default>', 'Page:default');
+		$domains = ['penzionsborovna.cz.local', 'penzionsborovna.cz'];
 
-		$router->withModule('PenzionsBorovna')
-			->withDomain('penzionsborovna.cz')
-			->addRoute('<page=default>', 'Page:default');
+		foreach ($domains as $domain) {
+			$router->withModule('PenzionsBorovna')
+				->withDomain($domain)
+				->addRoute('/en', [
+					'presenter' => 'Page',
+					'action' => 'en',
+					'page' => 'home'
+				])
+				->addRoute('<page=default>', 'Page:default');
+		}
 
 		return $router;
 	}
