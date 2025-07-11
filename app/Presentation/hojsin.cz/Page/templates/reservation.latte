@@ -8,7 +8,7 @@
         <a href="#" class="menu-toggle js_menu-toggler">Menu<i class="menu-toggle__icon" aria-hidden="true"></i></a>
         <div class="row">
             <div class="col-lg-4">
-                <a n:href="Page:default page=>home, lang=>cs" class="page-header__logo">
+                <a n:href="Page:default $page=>home, lang=>cs" class="page-header__logo">
                     {include ../../layout/background.latte}
                 </a>
             </div>
@@ -19,11 +19,11 @@
                 </div>
                 <nav class="nav js_nav">
                     <ul class="main-menu">
-                        <li><a n:href="Page:#gallery $page=home.en, $lang=en">Photogallery</a></li>
-                        <li><a n:href="Page:#experiences $page=home.en, $lang=en">Experience</a></li>
-                        <li><a n:href="Page:#rooms $page=home.en, $lang=en">Rooms</a></li>
-                        <li><a n:href="Page:#trips $page=home.en, $lang=en">Trips</a></li>
-                        <li><a n:href="Page:#contact $page=home.en, $lang=en">Contact</a></li>
+                        <li><a n:href="Page:default#gallery $page=home.en, $lang=en">Photogallery</a></li>
+                        <li><a n:href="Page:default#experiences $page=home.en, $lang=en">Experience</a></li>
+                        <li><a n:href="Page:default#rooms $page=home.en, $lang=en">Rooms</a></li>
+                        <li><a n:href="Page:default#trips $page=home.en, $lang=en">Trips</a></li>
+                        <li><a n:href="Page:default#contact $page=home.en, $lang=en">Contact</a></li>
                     </ul>
                 </nav>
             </div>

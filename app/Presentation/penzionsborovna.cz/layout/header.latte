@@ -7,8 +7,8 @@
             </div>
             <div class="col-lg-8 page-header__right js_toggle-menu">
                 <div class="lang">
-                    <a href="/" class="lang__item {if $lang === 'cs'}-active{/if}">Cz</a>
-                    <a href="/en.html" class="lang__item {if $lang === 'en'}-active{/if}">En</a>
+                            <a n:href="Page:default page=>home, lang=>cs" class="lang__item {if $lang === 'cs'}-active{/if}">Cz</a>
+        <a n:href="Page:en page=>home, lang=>en" class="lang__item {if $lang === 'en'}-active{/if}">En</a>
                 </div>
                 <nav class="nav js_nav">
                     <ul class="main-menu">
@@ -18,14 +18,14 @@
                             <li><a href="#rooms" class="js_scroll">Rooms</a></li>
                             <li><a href="#trips" class="js_scroll">Trips</a></li>
                             <li><a href="#contact" class="js_scroll">Contact</a></li>
-                            <li><a href="/reservation.html" class="button -bordered -small">Reservation</a></li>
+                            <li><a n:href="Page:reservation" class="button -bordered -small">Reservation</a></li>
                         {else}
                             <li><a href="#gallery" class="js_scroll">Galerie</a></li>
                             <li><a href="#experiences" class="js_scroll">Zážitky</a></li>
                             <li><a href="#rooms" class="js_scroll">Pokoje</a></li>
                             <li><a href="#trips" class="js_scroll">Výlety</a></li>
                             <li><a href="#contact" class="js_scroll">Kontakt</a></li>
-                            <li><a href="/rezervace.html" class="button -bordered -small">Rezervace</a></li>
+                            <li><a n:href="Page:rezervace" class="button -bordered -small">Rezervace</a></li>
                         {/if}
                     </ul>
                 </nav>
