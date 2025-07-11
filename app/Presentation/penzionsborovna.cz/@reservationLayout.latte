@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <title>{block title}Sborovna{/block}</title>
+    {include layout/head.latte}
+</head>
+<body class="with-small-header">
+    {* Google Tag Manager (noscript) - from scripts.latte *}
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NQTJVHR" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    
+    {include layout/svgIcons.latte}
+    {include reservationHeader}
+    <main>
+        {include content}
+    </main>
+    
+    {* JavaScript at the end *}
+    {block scripts}
+    <script src="{$basePath}/assets/penzionsborovna.cz/script.js"></script>
+    <script src="https://www.bookoloengine.com/v3/bookolo.js"></script>
+    {/block}
+</body>
+</html> 

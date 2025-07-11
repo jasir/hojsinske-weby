@@ -72,11 +72,29 @@ final class RouterFactory
 			$router
 				->withModule('PenzionsBorovna')
 				->withDomain($domain)
+				->addRoute('/rezervace', [
+					'presenter' => 'Page',
+					'action' => 'redirect',
+					'url' => '/rezervace.html'
+				], Route::ONE_WAY)
+				->addRoute('/reservation', [
+					'presenter' => 'Page',
+					'action' => 'redirect',
+					'url' => '/reservation.html'
+				], Route::ONE_WAY)
 				->addRoute('/en', [
 					'presenter' => 'Page',
 					'action' => 'redirect',
 					'url' => '/en.html'
 				], Route::ONE_WAY)
+				->addRoute('/rezervace.html', [
+					'presenter' => 'Page',
+					'action' => 'rezervace'
+				])
+				->addRoute('/reservation.html', [
+					'presenter' => 'Page',
+					'action' => 'reservation'
+				])
 				->addRoute('/en.html', [
 					'presenter' => 'Page',
 					'action' => 'en',

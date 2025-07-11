@@ -38,6 +38,20 @@ final class PagePresenter extends Nette\Application\UI\Presenter
         }
     }
 
+    public function renderRezervace(): void
+    {
+        $this->template->lang = 'cs';
+        $this->setLayout(__DIR__ . '/../@reservationLayout.latte');
+        $this->template->setFile(__DIR__ . '/templates/rezervace.latte');
+    }
+
+    public function renderReservation(): void
+    {
+        $this->template->lang = 'en';
+        $this->setLayout(__DIR__ . '/../@reservationLayout.latte');
+        $this->template->setFile(__DIR__ . '/templates/reservation.latte');
+    }
+
     public function renderRedirect(string $url = '/'): void
     {
         $this->redirectUrl($url);

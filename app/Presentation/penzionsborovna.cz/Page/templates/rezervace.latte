@@ -1,0 +1,48 @@
+{layout '../../@reservationLayout.latte'}
+
+{block title}Rezervace - Sborovna{/block}
+
+{block reservationHeader}
+<header class="page-header">
+    <div class="container">
+        <a href="#" class="menu-toggle js_menu-toggler">Menu<i class="menu-toggle__icon" aria-hidden="true"></i></a>
+        <div class="row">
+            <div class="col-lg-4">
+                <a href="/" class="page-header__logo">
+                    {include ../../layout/logoSborovna.latte}
+                </a>
+            </div>
+            <div class="col-lg-8 page-header__right js_toggle-menu">
+                <div class="lang">
+                    <a href="/" class="lang__item -active">Cz</a>
+                    <a href="/en.html" class="lang__item">En</a>
+                </div>
+                <nav class="nav js_nav">
+                    <ul class="main-menu">
+                        <li><a href="/#gallery">Galerie</a></li>
+                        <li><a href="/#experiences">Zážitky</a></li>
+                        <li><a href="/#rooms">Pokoje</a></li>
+                        <li><a href="/#trips">Výlety</a></li>
+                        <li><a href="/#contact">Kontakt</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+{/block}
+
+{block content}
+<div class="main-content">
+    <section>
+        <div id="bookolo-engine" data-hotel-id="1013" data-language="cs" data-currency="CZK"></div>
+    </section>
+</div>
+{/block}
+
+{block scripts}
+{* Include parent scripts first *}
+{include parent}
+{* Add Bookolo specific script *}
+<script src="https://www.bookoloengine.com/v3/bookolo.js"></script>
+{/block} 
