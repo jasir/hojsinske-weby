@@ -3,36 +3,36 @@
         <a href="#" class="menu-toggle js_menu-toggler">Menu<i class="menu-toggle__icon" aria-hidden="true"></i></a>
         <div class="row">
             <div class="col-lg-4">
-                <a href="/" class="page-header__logo">
+                <a n:href="Page:default page=>home, lang=>cs" class="page-header__logo">
                     {include background.latte}
                 </a>
             </div>
             <div class="col-lg-8 page-header__right js_toggle-menu">
 
                 <div class="lang">
-                    <a href="/" class="lang__item {if $lang === 'cs'}-active{/if}">Cz</a>
-                    <a href="/en.html" class="lang__item {if $lang === 'en'}-active{/if}">En</a>
+                            <a n:href="Page:default page=>home, lang=>cs" class="lang__item {if $lang === 'cs'}-active{/if}">Cz</a>
+        <a n:href="Page:default page=>home.en, lang=>en" class="lang__item {if $lang === 'en'}-active{/if}">En</a>
                 </div>
                 <nav class="nav js_nav">
                     <ul class="main-menu">
                         {if $lang === 'en'}
-                            <li><a href="#gallery" class="js_scroll">Gallery</a></li>
-                            <li><a href="#experiences" class="js_scroll">Experiences</a></li>
-                            <li><a href="#rooms" class="js_scroll">Rooms</a></li>
-                            <li><a href="#trips" class="js_scroll">Trips</a></li>
-                            <li><a href="/weddings.html">Weddings</a></li>
-                            <li><a href="/companies.html">Companies</a></li>
-                            <li><a href="#contact" class="js_scroll">Contact</a></li>
-                            <li><a href="/reservation.html" class="button -bordered -small">Reservation</a></li>
+                                    <li><a href="#gallery" class="js_scroll">Gallery</a></li>
+        <li><a href="#experiences" class="js_scroll">Experiences</a></li>
+        <li><a href="#rooms" class="js_scroll">Rooms</a></li>
+        <li><a href="#trips" class="js_scroll">Trips</a></li>
+        <li><a n:href="Page:default page=>weddings, lang=>en">Weddings</a></li>
+        <li><a n:href="Page:default page=>companies, lang=>en">Companies</a></li>
+        <li><a href="#contact" class="js_scroll">Contact</a></li>
+        <li><a n:href="Page:default page=>reservation, lang=>en" class="button -bordered -small">Reservation</a></li>
                         {else}
-                            <li><a href="#gallery" class="js_scroll">Galerie</a></li>
-                            <li><a href="#experiences" class="js_scroll">Zážitky</a></li>
-                            <li><a href="#rooms" class="js_scroll">Pokoje</a></li>
-                            <li><a href="#trips" class="js_scroll">Výlety</a></li>
-                            <li><a href="/svatby.html">Svatby</a></li>
-                            <li><a href="/firmy.html">Firmy</a></li>
-                            <li><a href="#contact" class="js_scroll">Kontakt</a></li>
-                            <li><a href="/rezervace.html" class="button -bordered -small">Rezervace</a></li>
+                                    <li><a href="#gallery" class="js_scroll">Galerie</a></li>
+        <li><a href="#experiences" class="js_scroll">Zážitky</a></li>
+        <li><a href="#rooms" class="js_scroll">Pokoje</a></li>
+        <li><a href="#trips" class="js_scroll">Výlety</a></li>
+        <li><a n:href="Page:default page=>svatby, lang=>cs">Svatby</a></li>
+        <li><a n:href="Page:default page=>firmy, lang=>cs">Firmy</a></li>
+        <li><a href="#contact" class="js_scroll">Kontakt</a></li>
+        <li><a n:href="Page:default page=>rezervace, lang=>cs" class="button -bordered -small">Rezervace</a></li>
                         {/if}
                     </ul>
                 </nav>
