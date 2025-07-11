@@ -38,6 +38,26 @@ final class RouterFactory
 					'action' => 'redirect',
 					'url' => '/en.html'
 				], Route::ONE_WAY)
+				->addRoute('/svatby', [
+					'presenter' => 'Page',
+					'action' => 'redirect',
+					'url' => '/svatby.html'
+				], Route::ONE_WAY)
+				->addRoute('/weddings', [
+					'presenter' => 'Page',
+					'action' => 'redirect',
+					'url' => '/weddings.html'
+				], Route::ONE_WAY)
+				->addRoute('/firmy', [
+					'presenter' => 'Page',
+					'action' => 'redirect',
+					'url' => '/firmy.html'
+				], Route::ONE_WAY)
+				->addRoute('/companies', [
+					'presenter' => 'Page',
+					'action' => 'redirect',
+					'url' => '/companies.html'
+				], Route::ONE_WAY)
 				->addRoute('/rezervace.html', [
 					'presenter' => 'Page',
 					'action' => 'default',
@@ -54,6 +74,30 @@ final class RouterFactory
 					'presenter' => 'Page',
 					'action' => 'default',
 					'page' => 'home.en',
+					'lang' => 'en'
+				])
+				->addRoute('/svatby.html', [
+					'presenter' => 'Page',
+					'action' => 'default',
+					'page' => 'svatby',
+					'lang' => 'cs'
+				])
+				->addRoute('/weddings.html', [
+					'presenter' => 'Page',
+					'action' => 'default',
+					'page' => 'weddings',
+					'lang' => 'en'
+				])
+				->addRoute('/firmy.html', [
+					'presenter' => 'Page',
+					'action' => 'default',
+					'page' => 'firmy',
+					'lang' => 'cs'
+				])
+				->addRoute('/companies.html', [
+					'presenter' => 'Page',
+					'action' => 'default',
+					'page' => 'companies',
 					'lang' => 'en'
 				])
 				->addRoute('/', [
