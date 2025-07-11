@@ -1,0 +1,52 @@
+---
+globs: "*.latte"
+---
+
+# Latte Templates Guidelines
+
+## Template Structure Rules
+
+### Layout Inheritance
+- Main pages use: `{layout '../../@layout.latte'}`
+- Reservation pages use: `{layout '../../@reservationLayout.latte'}`
+- Reservation layout has `class="with-small-header"` on body
+
+### Block Structure
+All templates should define:
+```latte
+{block title}Page Title{/block}
+{block content}...{/block}
+```
+
+Reservation templates also need:
+```latte
+{block reservationHeader}...{/block}
+```
+
+### Asset References
+Always use `{$basePath}` for assets:
+```latte
+<img src="{$basePath}/assets/{domain}/images/image.jpg" alt="">
+<link rel="stylesheet" href="{$basePath}/assets/{domain}/styles.css">
+```
+
+### Language-Specific Templates
+- Czech (default): `template.latte`
+- English: `template.en.latte`
+- Use `{if $lang === 'en'}` for conditional content
+
+### Modular Template Organization
+Break large templates into smaller components in `home/` subdirectory:
+- `home/banner.latte` / `home/banner.en.latte`
+- `home/intro.latte` / `home/intro.en.latte`
+- Include with: `{include home/section.latte}`
+
+### Language Switching in Headers
+Navigation should correctly switch between language versions:
+- Home pages: `"/"` ↔ `"/en.html"`
+- Reservations: `"/rezervace.html"` ↔ `"/reservation.html"`
+
+### JavaScript and CSS
+- Place JS at end of body: `{block scripts}...{/block}`
+- Include parent scripts: `{include parent}` in script blocks
+- CSS goes in `<head>` via layout templates

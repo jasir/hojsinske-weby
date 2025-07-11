@@ -1,0 +1,52 @@
+---
+description: "Asset organization and paths"
+---
+
+# Assets Organization
+
+## Directory Structure
+```
+www/assets/
+├── hojsin.cz/
+│   ├── images/
+│   │   ├── gallery/ (63 gallery images)
+│   │   ├── rooms/ (room photos)
+│   │   ├── favicons/ (27 favicon variants)
+│   │   └── *.jpg, *.jpeg, *.png
+│   ├── default.min.js / default.min.js.map
+│   ├── script.js
+│   └── style.css
+└── penzionsborovna.cz/
+    ├── images/
+    │   ├── gallery/ (54 gallery images) 
+    │   ├── favicons/ (favicon variants)
+    │   └── *.jpg, *.png
+    ├── script.js
+    └── styles.css
+```
+
+## Asset Path References
+Always use `{$basePath}` in templates:
+```latte
+<!-- Images -->
+<img src="{$basePath}/assets/hojsin.cz/images/banner.jpg" alt="">
+<img src="{$basePath}/assets/penzionsborovna.cz/images/banner.jpg" alt="">
+
+<!-- CSS -->
+<link rel="stylesheet" href="{$basePath}/assets/hojsin.cz/style.css">
+<link rel="stylesheet" href="{$basePath}/assets/penzionsborovna.cz/styles.css">
+
+<!-- JavaScript -->
+<script src="{$basePath}/assets/hojsin.cz/default.min.js"></script>
+<script src="{$basePath}/assets/penzionsborovna.cz/script.js"></script>
+```
+
+## Gallery Images
+- **HojsinCz**: 63 images numbered 1-113 (with gaps)
+- **PenzionsBorovna**: 54 images numbered 1-113 (with gaps)
+- Use `str_pad((string)$imageNumber, 3, '0', STR_PAD_LEFT)` for padding
+
+## External Scripts
+- Bookolo reservation engine: `https://www.bookoloengine.com/v3/bookolo.js`
+- Elfsight platform: `https://static.elfsight.com/platform/platform.js`
+- Google Tag Manager: GTM-K3HJBD6 (hojsin.cz), GTM-NQTJVHR (penzionsborovna.cz)

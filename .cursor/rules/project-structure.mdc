@@ -1,0 +1,43 @@
+---
+alwaysApply: true
+---
+
+# Hojsin-Web Project Structure
+
+This is a Nette Framework application with multi-domain architecture serving two websites:
+
+## Domain Structure
+- **HojsinCz module**: `app/Presentation/hojsin.cz/` - serves hojsin.cz domain
+- **PenzionsBorovna module**: `app/Presentation/penzionsborovna.cz/` - serves penzionsborovna.cz domain
+
+## Key Architecture Files
+- Main entry: [www/index.php](mdc:www/index.php)
+- Bootstrap: [app/Bootstrap.php](mdc:app/Bootstrap.php) 
+- Routing: [app/Core/RouterFactory.php](mdc:app/Core/RouterFactory.php)
+- Configuration: [config/common.neon](mdc:config/common.neon), [config/services.neon](mdc:config/services.neon)
+
+## Module Structure Pattern
+Each domain module follows this structure:
+```
+app/Presentation/{domain}/
+├── @layout.latte (main layout)
+├── @reservationLayout.latte (reservation pages layout)
+├── layout/ (shared layout components)
+├── Page/
+│   ├── PagePresenter.php
+│   └── templates/
+│       ├── home.latte (Czech homepage)
+│       ├── home.en.latte (English homepage)
+│       ├── rezervace.latte (Czech reservation)
+│       ├── reservation.latte (English reservation)
+│       └── home/ (modular template sections)
+```
+
+## Assets Organization
+- **HojsinCz**: `www/assets/hojsin.cz/`
+- **PenzionsBorovna**: `www/assets/penzionsborovna.cz/`
+
+## Language Support
+- Czech (default): `.latte` files
+- English: `.en.latte` files
+- Routing: `/en.html` for English pages, `/rezervace.html`/`/reservation.html` for reservations

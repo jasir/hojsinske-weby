@@ -1,0 +1,44 @@
+---
+globs: "*Presenter.php"
+---
+
+# Nette Presenter Guidelines
+
+## Presenter Structure
+
+### Namespace Pattern
+- HojsinCz: `namespace App\Presentation\HojsinCz\Page;`
+- PenzionsBorovna: `namespace App\Presentation\PenzionsBorovna\Page;`
+
+### Action Methods
+- `renderDefault(string $page = 'default', string $lang = 'cs')` - for main pages
+- `renderEn(string $page = 'home')` - for English pages
+- `renderRezervace()` - for Czech reservations 
+- `renderReservation()` - for English reservations
+- `renderRedirect(string $url = '/')` - for redirects
+
+### Template Setting Pattern
+```php
+public function renderAction(): void
+{
+    $this->template->lang = 'cs'; // or 'en'
+    $this->setLayout(__DIR__ . '/../@layout.latte'); // or @reservationLayout.latte
+    $this->template->setFile(__DIR__ . '/templates/template.latte');
+}
+```
+
+### Error Handling
+Always check if template file exists:
+```php
+$templateFile = __DIR__ . "/templates/$page.latte";
+if (file_exists($templateFile)) {
+    $this->template->setFile($templateFile);
+} else {
+    $this->error('Stránka nebyla nalezena');
+}
+```
+
+### Template Variables
+Always set these variables:
+- `$this->template->lang` - language code ('cs'/'en')
+- `$this->template->page` - current page identifier

@@ -1,0 +1,51 @@
+---
+description: "Development and deployment guidelines"
+---
+
+# Development Guidelines
+
+## Local Development URLs
+- **HojsinCz**: http://hojsin.cz.local/
+- **PenzionsBorovna**: http://penzionsborovna.cz.local/
+
+## Testing Pages
+Test all language variants:
+- Czech homepage: `/`
+- English homepage: `/en.html`
+- Czech reservation: `/rezervace.html` 
+- English reservation: `/reservation.html`
+
+## Verification Commands
+```bash
+# HTTP status check
+curl -s -o /dev/null -w "%{http_code}" http://domain.local/page.html
+
+# Content verification
+curl -s http://domain.local/page.html | grep "search-pattern"
+
+# Gallery image count
+find www/assets/domain/images/gallery/ -name "*.jpg" | wc -l
+```
+
+## Key Files to Watch
+- [app/Core/RouterFactory.php](mdc:app/Core/RouterFactory.php) - routing changes
+- [config/common.neon](mdc:config/common.neon) - application config
+- `www/assets/{domain}/` - static assets
+- Template files in `app/Presentation/{domain}/`
+
+## PHP Requirements
+- Nette Framework 3.x
+- PHP 8.0+
+- Latte templating engine
+
+## Bookolo Integration
+- **HojsinCz**: hotel-id="346"
+- **PenzionsBorovna**: hotel-id="1013"
+- Currency: "CZK"
+- Languages: "cs"/"en"
+
+## CSS/JS Compilation
+Assets appear to be pre-compiled. Check for:
+- Source maps (.map files)
+- Minified versions (.min.js)
+- Original source files for development

@@ -1,0 +1,40 @@
+---
+description: "Routing configuration and URL patterns"
+---
+
+# RouterFactory Configuration
+
+Router configuration is in [app/Core/RouterFactory.php](mdc:app/Core/RouterFactory.php).
+
+## Domain-Based Routing
+Two separate domain configurations:
+- **hojsin.cz** / **hojsin.cz.local** → HojsinCz module
+- **penzionsborovna.cz** / **penzionsborovna.cz.local** → PenzionsBorovna module
+
+## URL Patterns
+
+### HojsinCz Routes
+- `/` → Page:default (page=home, lang=cs)
+- `/en.html` → Page:default (page=home.en, lang=en)  
+- `/rezervace.html` → Page:default (page=rezervace, lang=cs)
+- `/reservation.html` → Page:default (page=reservation, lang=en)
+- `/rezervace` → redirect to `/rezervace.html` (ONE_WAY)
+- `/reservation` → redirect to `/reservation.html` (ONE_WAY)
+- `/en` → redirect to `/en.html` (ONE_WAY)
+
+### PenzionsBorovna Routes
+- `/` → Page:default (page=default)
+- `/en.html` → Page:en (page=home)
+- `/rezervace.html` → Page:rezervace
+- `/reservation.html` → Page:reservation
+- `/rezervace` → redirect to `/rezervace.html` (ONE_WAY)
+- `/reservation` → redirect to `/reservation.html` (ONE_WAY)
+- `/en` → redirect to `/en.html` (ONE_WAY)
+
+## SEO-Friendly URLs
+All public URLs use `.html` extension for better SEO.
+Redirects handle clean URLs without extension.
+
+## Route Priority
+Routes are processed in order - more specific routes should come first.
+ONE_WAY routes are for redirects only.
