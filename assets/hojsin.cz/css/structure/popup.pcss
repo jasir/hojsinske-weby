@@ -1,0 +1,106 @@
+.popup-overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 15px;
+    z-index: 10;
+
+    @media (--sm-viewport) {
+        padding: 20px 30px;
+    }
+}
+
+.popup-box {
+    color: var(--white);
+    width: 800px;
+    max-width: 800px;
+    padding: 45px 0 30px 30px;
+    background: #333 url("../images/popup-bg.jpg") center no-repeat;
+    background-size: cover;
+    min-height: 300px;
+    font-size: 18px;
+    line-height: 1.4;
+    position: relative;
+
+    @media (--md-viewport) {
+        padding: 55px 0 40px 40px;
+        font-size: 25px;
+    }
+
+    .popup-close {
+        width: 34px;
+        height: 34px;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+
+        @media (--md-viewport) {
+            width: 46px;
+            height: 46px;
+            top: 20px;
+            right: 20px;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 2px;
+            background: var(--white);
+            left: 50%;
+            bottom: 0;
+            transform: rotate(-45deg);
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 2px;
+            background: var(--white);
+            left: 50%;
+            bottom: 0;
+            transform: rotate(45deg);
+        }
+    }
+
+    &__text,
+    &__title,
+    a {
+        color: var(--white);
+    }
+
+    &__title {
+        text-align: left;
+        font-family: var(--libertinus);
+        font-size: 30px;
+        margin-bottom: 15px;
+        padding-right: 40px;
+
+        @media (--sm-viewport) {
+            font-size: 40px;
+        }
+
+        @media (--md-viewport) {
+            font-size: 55px;
+        }
+    }
+
+    &__text {
+        padding-top: 28.5%;
+        background: url("../images/vouchery.png") top right no-repeat;
+        background-size: 84%;
+
+        @media (--md-viewport) {
+            padding-top: 240px;
+            background-position: center right;
+            background-size: 100%;
+        }
+    }
+}

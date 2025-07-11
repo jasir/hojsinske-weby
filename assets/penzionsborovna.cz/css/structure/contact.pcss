@@ -1,0 +1,67 @@
+.circle-logo {
+    width: 195px;
+    margin: 165px 0 50px;
+    display: block;
+
+    @media (--md-viewport) {
+        margin-bottom: 103px;
+    }
+    @media (--max-767-viewport) {
+        margin-top: 0;
+    }
+}
+
+.map-iframe {
+    margin-top: 0;
+    border: none;
+
+    @media (--max-767-viewport) {
+        pointer-events:none;
+    }
+}
+
+.mobile-map-link {
+    display: none;
+
+      @media (--max-767-viewport) {
+       display: block;
+       font-size: 17px;
+       font-weight: 600
+    }
+}
+
+.contacts-info-container {
+    background-size: 197px auto;
+
+    a {
+        color: var(--black);
+    }
+
+    p {
+        color: var(--black);
+    }
+}
+
+.contacts-info {
+    margin: 30px 0 50px;
+
+    @media (--md-viewport) {
+        margin-bottom: 100px;
+    }
+
+    &__item {
+        font-size: 18px;
+        position: relative;
+        padding-left: 44px;
+        margin-bottom: 25px;
+        line-height: 24px;
+        font-weight: 300;
+
+        .icon {
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+    }
+}

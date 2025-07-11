@@ -1,0 +1,130 @@
+h1 {
+    font-size: 50px;
+    line-height: 1.1em;
+    color: var(--white);
+    font-family: var(--libertinus);
+    font-weight: 300;
+
+    @media (--md-viewport) {
+        font-size: 80px;
+    }
+
+    &.-white {
+        color: var(--white)
+    }
+
+    span {
+        font-size: 22px;
+        font-weight: 100;
+        line-height: 1.1em;
+        font-family: var(--open-sans);
+        color: var(--white);
+        display: block;
+        margin-bottom: 10px;
+
+        @media (--md-viewport) {
+            font-size: 38px;
+        }
+    }
+}
+
+h2 {
+    font-size: 28px;
+    line-height: 1.15em;
+    font-weight: 300;
+    color: #155263;
+    text-align: center;
+    margin: 0 0 40px;
+    text-transform: uppercase;
+
+    span {
+        position: relative;
+        padding-left: 44px;
+        padding-right: 44px;
+        display: inline-block;
+
+        &::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            margin-top: 1px;
+            width: 28px;
+            height: 1px;
+            background: #155263;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            margin-top: 1px;
+            width: 30px;
+            height: 1px;
+            background: #155263;
+        }
+    }
+
+    @media (--md-viewport) {
+        font-size: 30px;
+    }
+
+    &.-big {
+        color: #155263;
+        font-size: 40px;
+        line-height: 1.1em;
+        font-weight: 500;
+        text-transform: none;
+
+        @media (--md-viewport) {
+            font-size: 50px;
+        }
+    }
+}
+
+h3 {
+    font-size: 15px;
+    line-height: 1.55em;
+    font-weight: 600;
+    color: var(--red);
+    text-transform: uppercase;
+    margin: 0 0 20px;
+    letter-spacing: 1px;
+
+    &.-gray {
+        color: var(--gray);
+    }
+
+    &.-big {
+        font-size: 25px;
+        font-weight: 400;
+        color: var(--gray);
+        text-transform: none;
+    }
+
+    .experiences & {
+        margin-bottom: 8px;
+    }
+}
+
+h4 {
+    font-size: 17px;
+    color: var(--gray);
+    font-weight: 600;
+    margin: 0 0 15px;
+}
+
+h5,
+h6 {
+    font-weight: 600;
+    margin: 0 0 10px;
+}
+
+h5 {
+    font-size: 16px;
+}
+
+h6 {
+    font-size: 15px;
+}

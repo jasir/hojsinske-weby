@@ -1,0 +1,35 @@
+.button {
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    background: var(--red);
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 25px;
+    border: none;
+    min-width: 120px;
+
+    &:hover {
+        background: var(--gray-dark);
+        color: var(--white)
+    }
+
+    &.-bordered {
+        background: none;
+        color: var(--white);
+        border: 2px solid var(--white);
+        font-weight: 600;
+
+        &:hover {
+           opacity: .8;
+            text-decoration: none;
+            color: var(--white)
+        }
+    }
+
+    &.-small {
+        padding: 5px 12px;
+    }
+}

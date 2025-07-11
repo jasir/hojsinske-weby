@@ -1,0 +1,52 @@
+.section-banner {
+    position: relative;
+
+    .stamp {
+        position:absolute;
+        right:0;
+        bottom:0;
+        z-index: 2;
+
+        img {
+            margin: 0;
+            width: 70px;
+
+             @media (--md-viewport) {
+                width: auto;
+            }
+        }
+    }
+
+    .jarallax {
+
+        &-table{
+            display: table;
+            width: 100%;
+            height: 410px;
+
+
+            @media (--md-viewport) {
+                height: 440px;
+            }
+
+            @media (--lg-viewport) {
+                height: 640px;
+            }
+
+            &-cell {
+                display: table-cell;
+                text-align: center;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    h1 {
+        margin-bottom: 22px;
+    }
+}
+
+.banner-logo {
+    width: 254px;
+    height: auto;
+}

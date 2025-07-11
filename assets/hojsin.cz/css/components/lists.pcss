@@ -1,0 +1,19 @@
+ul {
+    list-style-type: none;
+
+    li {
+        padding-left: 24px;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--red);
+            left: 0;
+            top: 11px;
+        }
+    }
+}
