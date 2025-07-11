@@ -1,0 +1,42 @@
+{* Gallery snippet pro penzionsborovna.cz *}
+{define galleryImages, $firstImagePath}
+    {* Extract base path and filename pattern from first image *}
+    {var $basePath = substr($firstImagePath, 0, strrpos($firstImagePath, '/'))}
+    {var $extension = substr($firstImagePath, strrpos($firstImagePath, '.'))}
+    
+    {* Array of all gallery image numbers that exist based on original HTML *}
+    {var $galleryNumbers = [1, 2, 3, 4, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 43, 44, 45, 46, 47, 48, 49, 50, 51, 55, 56, 101, 103, 104, 109, 113]}
+    
+    {* Group images into slides (3 images per slide) *}
+    {var $imagesPerSlide = 3}
+    {var $totalSlides = ceil(count($galleryNumbers) / $imagesPerSlide)}
+    
+    {for $slideIndex = 0; $slideIndex < $totalSlides; $slideIndex++}
+        <div class="gallery-slider__item">
+            {for $imageIndex = 0; $imageIndex < $imagesPerSlide; $imageIndex++}
+                {var $globalIndex = $slideIndex * $imagesPerSlide + $imageIndex}
+                {if $globalIndex < count($galleryNumbers)}
+                    {var $imageNumber = $galleryNumbers[$globalIndex]}
+                    {var $imagePath = $basePath . '/SBO_' . str_pad((string)$imageNumber, 4, '0', 0) . $extension}
+                    <a href="{$imagePath}" class="gallery-slider__img js_gallery">
+                        <img class="tns-lazy-img"
+                             data-src="{$imagePath}"
+                             src="{$imagePath}"
+                             alt="" />
+                    </a>
+                {/if}
+            {/for}
+        </div>
+    {/for}
+{/define}
+
+<section class="section _bg-light-gray" id="gallery">
+    <div class="container">
+        <h2><span>Galerie</span></h2>
+    </div>
+    <div class="slider">
+        <div id="gallerySlider" class="gallery-slider gallery-ie-class">
+            {include galleryImages, $basePath . '/assets/penzionsborovna.cz/images/gallery/SBO_0001.jpg'}
+        </div>
+    </div>
+</section> 

@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-    <meta charset="utf-8">
-    <title>{block title}Penzions Borovna - Ubytování{/block}</title>
-    <link rel="stylesheet" href="{$basePath}/assets/penzionsborovna.cz/style.css">
+    <title>{block title}Sborovna{/block}</title>
+    {include layout/head.latte}
 </head>
 <body>
-    <header>
-        <h1 style="color: #059669;"><a href="/">Penzions Borovna</a></h1>
-        {control pageMenu}
-    </header>
+    {* Google Tag Manager (noscript) - from scripts.latte *}
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NQTJVHR" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    
+    {include layout/svgIcons.latte}
+    {include layout/header.latte}
     <main>
         {include content}
     </main>
-    <script src="{$basePath}/assets/penzionsborovna.cz/script.js"></script>
+    
+    {* JavaScript at the end *}
+    <script src="{$basePath}/assets/penzionsborovna.cz/default.min.js"></script>
 </body>
 </html>
