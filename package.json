@@ -8,7 +8,13 @@
     "build:penzion": "cross-env NODE_ENV=production webpack --config webpack.config.js --mode production --env target=penzionsborovna.cz",
     "watch": "cross-env NODE_ENV=development webpack --config webpack.config.js --watch --mode development",
     "watch:hojsin": "cross-env NODE_ENV=development webpack --config webpack.config.js --watch --mode development --env target=hojsin.cz",
-    "watch:penzion": "cross-env NODE_ENV=development webpack --config webpack.config.js --watch --mode development --env target=penzionsborovna.cz"
+    "watch:penzion": "cross-env NODE_ENV=development webpack --config webpack.config.js --watch --mode development --env target=penzionsborovna.cz",
+    "dev:hojsin": "browser-sync start --proxy='hojsin.cz.local' --files='app/**/*.php,app/**/*.latte,www/assets/hojsin.cz/**/*' --no-open --reload-delay 300 --port 3430",
+    "dev:penzion": "browser-sync start --proxy='penzionsborovna.cz.local' --files='app/**/*.php,app/**/*.latte,www/assets/penzionsborovna.cz/**/*' --no-open --reload-delay 300 --port 3431",
+    "dev:both": "concurrently \"npm run watch:hojsin\" \"npm run dev:hojsin\"",
+    "dev:all": "concurrently \"npm run watch:hojsin\" \"npm run watch:penzion\" \"npm run dev:hojsin\" \"npm run dev:penzion\"",
+    "watch:all": "concurrently \"npm run watch:hojsin\" \"npm run watch:penzion\"",
+    "build:all": "concurrently \"npm run build:hojsin\" \"npm run build:penzion\""
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
@@ -18,6 +24,7 @@
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.6",
     "browser-sync-webpack-plugin": "^2.2.2",
+    "concurrently": "^7.6.0",
     "copy-webpack-plugin": "^5.0.3",
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.1",
