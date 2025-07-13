@@ -1,6 +1,7 @@
 module.exports = {
     plugins: [
         require('postcss-import'),
+        require('postcss-bootstrap-4-grid'),
         require('postcss-nested'),
         require('postcss-preset-env')({
             stage: 3,

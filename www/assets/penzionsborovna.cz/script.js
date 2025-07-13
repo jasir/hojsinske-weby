@@ -598,8 +598,8 @@ const ZBRASLAVICE_SCRIPTS = {
     Object(_parts_tiny_slider__WEBPACK_IMPORTED_MODULE_0__["default"])('gallerySlider', _parts_slider_options_slider_options__WEBPACK_IMPORTED_MODULE_5__["gallerySliderOptions"]);
     Object(_parts_fullPgaeScroll__WEBPACK_IMPORTED_MODULE_1__["default"])();
     Object(_parts_scrollReval__WEBPACK_IMPORTED_MODULE_2__["default"])('js_scroll-reval');
-    Object(_parts_lightbox__WEBPACK_IMPORTED_MODULE_4__["default"])('js_gallery');
-    Object(_parts_lightbox__WEBPACK_IMPORTED_MODULE_4__["default"])('js_gallery-maps');
+    Object(_parts_lightbox__WEBPACK_IMPORTED_MODULE_4__["default"])('.js_gallery');
+    Object(_parts_lightbox__WEBPACK_IMPORTED_MODULE_4__["default"])('.js_gallery-maps');
     new _parts_toggleMenu__WEBPACK_IMPORTED_MODULE_3__["default"]('js_menu-toggler', 'js_toggle-menu');
     Object(_parts_resizeHeaderOnScroll__WEBPACK_IMPORTED_MODULE_6__["default"])();
     Object(_parts_parallax__WEBPACK_IMPORTED_MODULE_7__["default"])();

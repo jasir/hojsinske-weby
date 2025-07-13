@@ -17,8 +17,8 @@ const HOJSIN_SCRIPTS = {
         initTinySlider('gallerySlider', gallerySliderOptions);
         initPageScroll();
         initScrollReval('js_scroll-reval');
-        initLightBox('js_gallery');
-        initLightBox('js_gallery-maps');
+        initLightBox('.js_gallery');
+        initLightBox('.js_gallery-maps');
         new ToggleMenu('js_menu-toggler', 'js_toggle-menu');
         resizeHeaderOnScroll();
         parallax();
