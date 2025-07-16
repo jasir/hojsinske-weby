@@ -124,12 +124,24 @@ services:
     - App\Core\RouterFactory::createRouter
 EOF
 
-# Step 6: Create backup on server
-log "Creating backup on server..."
+# Step 6: Prepare server directory and backup
+log "Preparing server directory and backup..."
 ssh -p "$REMOTE_PORT" "$REMOTE_USER@$REMOTE_SERVER" "
-    if [ -d '$REMOTE_PATH' ]; then
-        sudo cp -r '$REMOTE_PATH' '$REMOTE_PATH.backup.$(date +%Y%m%d-%H%M%S)'
-        echo 'Backup created'
+    # Ensure parent directory exists with proper permissions
+    sudo mkdir -p /altisima/public-apache-webs
+    sudo chown jarda:jarda /altisima/public-apache-webs
+    
+    # Create target directory if it doesn't exist
+    if [ ! -d '$REMOTE_PATH' ]; then
+        mkdir -p '$REMOTE_PATH'
+        echo 'Target directory created'
+    fi
+    
+    # Backup existing deployment
+    if [ -d '$REMOTE_PATH' ] && [ \"\$(ls -A '$REMOTE_PATH')\" ]; then
+        BACKUP_DIR='$REMOTE_PATH.backup.$(date +%Y%m%d-%H%M%S)'
+        cp -r '$REMOTE_PATH' \"\$BACKUP_DIR\"
+        echo \"Backup created: \$BACKUP_DIR\"
     else
         echo 'No existing deployment found, skipping backup'
     fi
@@ -137,12 +149,6 @@ ssh -p "$REMOTE_PORT" "$REMOTE_USER@$REMOTE_SERVER" "
 
 # Step 7: Deploy to server
 log "Deploying to server..."
-
-# Ensure target directory exists
-ssh -p "$REMOTE_PORT" "$REMOTE_USER@$REMOTE_SERVER" "
-    sudo mkdir -p '$REMOTE_PATH'
-    sudo chown $REMOTE_USER:$REMOTE_USER '$REMOTE_PATH'
-"
 
 # Sync files using rsync
 rsync -avz --delete-after \
