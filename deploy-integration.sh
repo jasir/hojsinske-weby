@@ -10,7 +10,7 @@ LOCAL_PROJECT_PATH="/c/work/projects/hojsin-web"
 REMOTE_SERVER="devel.altisima.cz"
 REMOTE_PORT="10022"
 REMOTE_USER="jarda"
-REMOTE_PATH="/altisima/public-apache-webs/hojsin.cz"
+REMOTE_PATH="/altisima/public-apache-webs/hojsin"
 
 # Colors for output
 RED='\033[0;31m'
@@ -43,18 +43,6 @@ if [ ! -d "$LOCAL_PROJECT_PATH" ]; then
 fi
 
 cd "$LOCAL_PROJECT_PATH"
-
-# Check git status
-if [ -d ".git" ]; then
-    if [ -n "$(git status --porcelain)" ]; then
-        warn "Working directory is not clean. Consider committing changes first."
-        read -p "Continue anyway? (y/n): " -n 1 -r
-        echo
-        if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-            exit 1
-        fi
-    fi
-fi
 
 # Step 2: Install dependencies
 log "Installing/updating dependencies..."
@@ -127,15 +115,8 @@ EOF
 # Step 6: Prepare server directory and backup
 log "Preparing server directory and backup..."
 ssh -p "$REMOTE_PORT" "$REMOTE_USER@$REMOTE_SERVER" "
-    # Ensure parent directory exists with proper permissions
-    sudo mkdir -p /altisima/public-apache-webs
-    sudo chown jarda:jarda /altisima/public-apache-webs
-    
     # Create target directory if it doesn't exist
-    if [ ! -d '$REMOTE_PATH' ]; then
-        mkdir -p '$REMOTE_PATH'
-        echo 'Target directory created'
-    fi
+    mkdir -p '$REMOTE_PATH'
     
     # Backup existing deployment
     if [ -d '$REMOTE_PATH' ] && [ \"\$(ls -A '$REMOTE_PATH')\" ]; then
@@ -150,19 +131,12 @@ ssh -p "$REMOTE_PORT" "$REMOTE_USER@$REMOTE_SERVER" "
 # Step 7: Deploy to server
 log "Deploying to server..."
 
-# Sync files using rsync
+# Sync files using rsync with sudo
 rsync -avz --delete-after \
     -e "ssh -p $REMOTE_PORT" \
     "$DEPLOY_DIR/" \
-    "$REMOTE_USER@$REMOTE_SERVER:$REMOTE_PATH/"
-
-# Set proper permissions
-ssh -p "$REMOTE_PORT" "$REMOTE_USER@$REMOTE_SERVER" "
-    sudo chown -R www-data:www-data '$REMOTE_PATH'
-    sudo find '$REMOTE_PATH' -type f -exec chmod 644 {} \;
-    sudo find '$REMOTE_PATH' -type d -exec chmod 755 {} \;
-    sudo chmod -R 777 '$REMOTE_PATH/temp' '$REMOTE_PATH/log' 2>/dev/null || true
-"
+    "$REMOTE_USER@$REMOTE_SERVER:/var/lib/docker/volumes/public-apache-webs/_data/hojsin/" \
+    --rsync-path="sudo rsync"
 
 # Step 8: Test deployment
 log "Testing deployment..."
