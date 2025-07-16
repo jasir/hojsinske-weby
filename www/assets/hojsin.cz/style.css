@@ -3,12 +3,13 @@
     --libertinus: libertinus, Arial, Helvetica, sans-serif
 }
 :root {
-    --text-color: #000;
-    --white: #fff;
-    --gray: #646567;
-    --gray-light: #eceded;
-    --gray-dark: #78797c;
-    --red: #f04632;
+  --text-color: #000;
+  --white: #fff;
+  --gray: #646567;
+  --gray-light: #eceded;
+  --gray-dark: #78797c;
+  --red: #f04632;
+  --green-light: #e8f5e8;
 }
 /*! sanitize.css v8.0.0 | CC0 License | github.com/csstools/sanitize.css */
 /* Document
@@ -1327,34 +1328,38 @@ textarea,
 
 }
 ._visuallyHidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 0.0625rem;
-    margin: -0.0625rem;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 0.0625rem;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 0.0625rem;
+  margin: -0.0625rem;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 0.0625rem;
 }
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 ._bg-gray {
-    background: #eceded;
-    background: var(--gray-light);
+  background: #eceded;
+  background: var(--gray-light);
+}
+._bg-green {
+  background: #e8f5e8;
+  background: var(--green-light);
 }
 ._gray {
-    color: #646567;
-    color: var(--gray);
+  color: #646567;
+  color: var(--gray);
 }
 ._mb0 {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 ._pb0 {
-    padding-bottom: 0 !important;
+  padding-bottom: 0 !important;
 }
 ._mt40 {
-    margin-top: 2.5rem;
+  margin-top: 2.5rem;
 }
 body {
     font-family: open_sans, Arial, Helvetica, sans-serif;
