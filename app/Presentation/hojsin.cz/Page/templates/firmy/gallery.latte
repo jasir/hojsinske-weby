@@ -1,7 +1,7 @@
 {* Gallery snippet - specific images for company page *}
 {define firmyGalleryImages}
-    {* Array of gallery image numbers specifically for companies page *}
-    {var $firmyGalleryNumbers = [1, 15, 22, 10, 36, 21, 25, 31, 33, 19, 27]}
+    {* Array of gallery image numbers specifically for companies page (from firmy/Galerie folder) *}
+    {var $firmyGalleryNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}
     
     {* Group images into slides (3 images per slide) *}
     {var $imagesPerSlide = 3}
@@ -13,7 +13,7 @@
                 {var $globalIndex = $slideIndex * $imagesPerSlide + $imageIndex}
                 {if $globalIndex < count($firmyGalleryNumbers)}
                     {var $imageNumber = $firmyGalleryNumbers[$globalIndex]}
-                    {var $imagePath = $basePath . '/assets/hojsin.cz/images/gallery/gallery' . $imageNumber . '.jpg'}
+                    {var $imagePath = $basePath . '/assets/hojsin.cz/images/firmy/Galerie/HOJ_GAL_firmy_' . $imageNumber . '.jpg'}
                     <a href="{$imagePath}" class="gallery-slider__img js_gallery">
                         <img class="tns-lazy-img"
                              data-src="{$imagePath}"
