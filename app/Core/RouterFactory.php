@@ -97,7 +97,7 @@ final class RouterFactory
 				->addRoute('/companies.html', [
 					'presenter' => 'Page',
 					'action' => 'default',
-					'page' => 'companies',
+					'page' => 'firmy.en',
 					'lang' => 'en'
 				])
 				->addRoute('/', [
