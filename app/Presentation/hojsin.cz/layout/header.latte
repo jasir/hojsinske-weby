@@ -10,8 +10,21 @@
             <div class="col-lg-9 page-header__right js_toggle-menu">
 
                 <div class="lang">
-                            <a n:href="Page:default page=>home, lang=>cs" class="lang__item {if $lang === 'cs'}-active{/if}">Cz</a>
-        <a n:href="Page:default page=>home.en, lang=>en" class="lang__item {if $lang === 'en'}-active{/if}">En</a>
+                    {do $pageMap = [
+                        'home' => 'home.en',
+                        'home.en' => 'home',
+                        'firmy' => 'firmy.en',
+                        'firmy.en' => 'firmy',
+                        'svatby' => 'weddings',
+                        'weddings' => 'svatby',
+                        'rezervace' => 'reservation',
+                        'reservation' => 'rezervace'
+                    ]}
+                    {do $currentPage = $page ?? 'home'}
+                    {do $csPage = $lang === 'cs' ? $currentPage : ($pageMap[$currentPage] ?? 'home')}
+                    {do $enPage = $lang === 'en' ? $currentPage : ($pageMap[$currentPage] ?? 'home.en')}
+                    <a n:href="Page:default page=>$csPage, lang=>cs" class="lang__item {if $lang === 'cs'}-active{/if}">Cz</a>
+                    <a n:href="Page:default page=>$enPage, lang=>en" class="lang__item {if $lang === 'en'}-active{/if}">En</a>
                 </div>
                 <nav class="nav js_nav">
                     <ul class="main-menu">
@@ -21,7 +34,7 @@
         <li><a href="#rooms" class="js_scroll">Rooms</a></li>
         <li><a href="#trips" class="js_scroll">Trips</a></li>
         <li><a n:href="Page:default page=>weddings, lang=>en">Weddings</a></li>
-        <li><a n:href="Page:default page=>companies, lang=>en">Companies</a></li>
+        <li><a n:href="Page:default page=>firmy.en, lang=>en">Companies</a></li>
         <li><a href="#contact" class="js_scroll">Contact</a></li>
         <li><a n:href="Page:default page=>reservation, lang=>en" class="button -bordered -small">Reservation</a></li>
                         {else}
