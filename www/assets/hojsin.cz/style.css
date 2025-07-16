@@ -2325,7 +2325,7 @@ iframe.wait-autoplay {
 /* Firmy section image centering on mobile */
 @media only screen and (max-width: 991px) {
       .main-content .section .col-lg-6 {
-        text-align: center;
+        text-align: left;
       }
 
         .main-content .section .col-lg-6 .img-fluid {
@@ -2333,6 +2333,11 @@ iframe.wait-autoplay {
           margin: 0 auto 1.25rem;
           max-width: 100%;
           height: auto;
+        }
+
+      /* Workspace section text alignment */
+        .main-content .section .col-lg-12 .text-center {
+          text-align: left;
         }
   }
 .page-header {
